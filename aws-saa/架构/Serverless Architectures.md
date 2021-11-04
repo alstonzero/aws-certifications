@@ -11,7 +11,7 @@
 - The users can write and read to-dos, but they mostly read them
 - The database should scale, and have some high read throughput
 
-
+![](https://raw.githubusercontent.com/alstonzero/aws-certifications/main/aws-saa/%E6%9E%B6%E6%9E%84/pic/serverless%20Mobile%20application.png)
 
 
 
