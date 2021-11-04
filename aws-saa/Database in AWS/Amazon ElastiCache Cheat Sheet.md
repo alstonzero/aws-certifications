@@ -4,7 +4,11 @@
 
 类似于 RDS,but for cache。可以想象为cache版的RDS。
 
-两种流行的**内存中数据存储(in-memory data stores)**的完全托管实现 - `Redis` 和 `Memcached`。
+ElastiCache是完全托管型的**内存数据存储(in-memory data stores)** 。有两种引擎：
+- `Redis` 
+- `Memcached`
+
+in-memory datastore是在内存中存储数据，因此相比于RDBMS能更快速的返回response。因此使用ElasticCache可以缩短application全体的reponse time。
 
 ElastiCache 是一项 Web 服务，可让您轻松在云中部署和运行符合 `Memcached` 或 `Redis` 协议的服务器节点。
 
