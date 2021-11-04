@@ -2,13 +2,13 @@
 
 ## 一般的
 
-Amazon Athena 是一种**交互式查询服务，可以使用标准 SQL 轻松分析 Amazon S3 中的数据**。
+Amazon Athena 是一种**交互式查询服务，可以使用标准 SQL 轻松查询S3 中的数据**。
 
-Athena 是无服务器的，因此无需管理基础架构，您只需为运行的查询付费。
+Athena 是无服务器的，因此无需管理基础架构，**只需为运行的查询付费**。
 
-Athena 易于使用 – 只需指向 Amazon S3 中的数据，定义架构，然后使用标准 SQL 开始查询。
+Athena 易于使用 ——只需指向 Amazon S3 中的数据，定义架构，然后使用标准 SQL 开始查询。
 
-Amazon Athena 使用具有完整标准 SQL 支持的 Presto，并处理各种标准数据格式，包括 CSV、JSON、ORC、Apache Parquet 和 Avro。
+Amazon Athena 使用具有完整标准 SQL 支持的 Presto engine，并处理各种标准数据格式，包括 CSV、JSON、ORC、Apache Parquet 和 Avro。
 
 虽然 Amazon Athena 非常适合快速、即席查询(ad-hoc querying)并与 Amazon QuickSight 集成以实现轻松可视化，但它还可以处理复杂的分析，包括大型联接、窗口函数和数组。
 
