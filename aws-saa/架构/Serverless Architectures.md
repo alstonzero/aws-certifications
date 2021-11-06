@@ -11,6 +11,8 @@
 - The users can write and read to-dos, but they mostly read them
 - The database should scale, and have some high read throughput
 
+### 实现步骤
+
 ![](https://raw.githubusercontent.com/alstonzero/aws-certifications/main/aws-saa/%E6%9E%B6%E6%9E%84/pic/serverless%20Mobile%20application.png)
 
 
@@ -46,6 +48,8 @@
 - Any new users that subscribes should receive a welcome email（任何订阅的新用户都应该收到一封welcome email）
 - Any photo uploaded to the blog should have a thumbnail generated（上传到blog的任何照片都应生成缩略图）
 
+### 实现步骤
+
 ![](https://raw.githubusercontent.com/alstonzero/aws-certifications/main/aws-saa/%E6%9E%B6%E6%9E%84/pic/serverless%20MyBlog.com.png)
 
 - Serving static content, globally：静态内容储存在S3 bucket中，使用Amazon CloudFront全球范围公开。User将会和CloudFront上的边缘站点交互，从S3中直接获取数据。如何实现securely（安全）？
@@ -56,7 +60,9 @@
 
   - Leveraging DynamoDB Global Tables：如果要面向全球，可以利用 DynamoDB 全局数据库减少世界部分地区的延迟。
 
-- User Welcome email flow：在DynamoDB中启用变化流(enable streams of changes)。因此创建DynamoDB流，DynamoDB 流将调用 Lambda 函数。Lambda 函数会很特别，它将有一个 IAM 角色，能够使用 Amazon SES。
+- ![](https://raw.githubusercontent.com/alstonzero/aws-certifications/main/aws-saa/%E6%9E%B6%E6%9E%84/pic/user%20welcom%20email%20flow.png)
+
+  User Welcome email flow：在DynamoDB中启用变化流(enable streams of changes)。因此创建DynamoDB流，DynamoDB 流将调用 Lambda 函数。Lambda 函数会很特别，它将有一个 IAM 角色，能够使用 Amazon SES。
 
 - Thumbnail（缩略图） Generation flow：我们想要创建缩略图，user可能会直接上传到S3 存储桶。或者 CloudFront distribution中再次使用 OAI，在这种情况下，我们的客户会将照片上传到 CloudFront，CloudFront 会将它们转发到 Amazon S3 存储桶，这称为 S3 传输加速(S3 transfer acceleration)。然后我们要做的是，每当一个文件被添加到 S3它会触发一个 Lambda 函数Lambda 将创建一个缩略图并将该缩略图放入 S3 存储桶中（可能是不同的存储桶）。Amazon S3 还具有 SQS 和 SNS 的触发器。（因此 Amazon S3 可以调用 Lambda、SQS 或 SNS，）
 
